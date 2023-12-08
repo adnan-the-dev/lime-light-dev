@@ -157,3 +157,63 @@
     height: 100%;
     object-fit: cover;
   }
+
+  /* **************Add product Section************* */
+
+
+
+
+  .container{
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url("https://img.freepik.com/premium-photo/abstract-digital-communication_34629-318.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696896000&semt=ais"); */
+    /* background-repeat: no-repeat; */
+}
+.first{
+   width: 350px;
+   border: 2px solid #009aff;
+   border-radius: 12px;
+   background-color: #226ea0;
+}
+.heading{
+    text-align: center;
+    margin-top: 12px;
+    color: white;
+}
+  .input-block {
+    padding: 5px 12px;
+  }
+  .input-block input{
+   padding: 16px;
+   border-radius: 35px;
+   width: 100%;
+   margin-top: 12px;
+   font-size: 14px;
+   border: 0;
+   outline: 0;
+  }
+  .btn-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .btn-box{
+    margin-top: 5px;
+    text-align: center;
+    width: 50%;
+    border-radius: 30px;
+    background-color: #fff;
+  }
+  .btn{
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+
+  }
