@@ -1,0 +1,159 @@
+.imges-section {
+    width: 100%;
+    padding-top: 1.5rem;
+    gap: 12px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+}
+
+.imge img {
+    height: 20rem;
+    width: 20rem;
+    object-fit: center;
+    padding: 8px;
+    /* border-radius: 8px; */
+    /* border; */
+}
+.imge img:hover {
+ transform: scale(1.05);
+ transition: 1s;
+
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: -3px 4px 11px 2px rgba(143, 140, 140, 0.062);
+    border: 1px solid gray;
+    text-align: center;
+    margin-top: 12px;
+    transition: transform 0.5s;
+}
+.card:hover {
+    /* background-color: red; */
+    /* transform: scale(1.2);
+    border: 1px solid rebeccapurple; */
+}
+
+
+/* *******************Pop Up Section*************** */
+
+.card-container {
+    display: flex;
+
+}
+
+.card-1 {
+    height: 650px;
+    width: 50%;
+    border: 1px solid gray;
+
+}
+
+.card-1 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+}
+
+.card-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.card-2 p {
+    padding: 0 10%;
+}
+
+.add-item {
+    height: 45px;
+    width: 40%;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+    margin-top: 10%;
+}
+
+.add-item div {
+    cursor: pointer;
+}
+
+.btn {
+    margin-top: 2%;
+}
+
+.btn button {
+    /* background-color: #000000; */
+    border: none;
+    color: white;
+    padding: 12px 88px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pop-up {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 400px;
+    /* margin: 0; */
+    /* gap: 30px; */
+    /* border: 5px solid gray; */
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+}
+
+
+
+/* **************Carousel************* */
+
+#app {
+    height: 100%;
+  }
+  html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+  
+  body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: red;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
