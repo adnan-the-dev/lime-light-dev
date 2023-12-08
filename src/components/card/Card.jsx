@@ -4,7 +4,7 @@ import "../sharedCss/shared.css";
 const Card = ({ home }) => {
   return (
     <div className="imges-section">
-      {home.map((home, i) => {
+      {home.products.map((home, i) => {
         return (
           <div key={i}>
             <NavLink
