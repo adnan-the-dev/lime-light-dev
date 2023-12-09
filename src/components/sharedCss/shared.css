@@ -12,8 +12,6 @@
   width: 20rem;
   object-fit: center;
   padding: 8px;
-  /* border-radius: 8px; */
-  /* border; */
 }
 .imge img:hover {
   transform: scale(1.05);
@@ -36,23 +34,85 @@
 /* *******************details section*************** */
 .container-1 {
   display: flex;
-  
+  margin-top: 20px;
+  justify-content: space-between;
  }
  
- .img-details {
-   max-width: 100%;
-   max-height:100%;
- }
- 
+.img-details{
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
  .container-2{
-  
- }
-/* *******************Pop Up Section*************** */
+  height: 580px;
+  width: 400px;
+  border: 1px solid gray;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
+ }
+ .discription-section{
+  text-align: center;
+ border: 1px solid gray;
+ border-radius: 12px;
+ height: 230px;
+ overflow: auto;
+}
+::-webkit-scrollbar {
+  width: 0em;
+}
+.discription-section div{
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  height: 30px;
+  width: 100%;
+  background-color: green;
+}
+.discription-section h4{
+  color: #fff;
+  font-size: x-large;
+  font-weight: 600;
+  
+}
+.discription-section p{
+  font-size: medium;
+  font-weight: 520;
+  padding: 0px 10px;
+}
+/* *******************Counter Section*************** */
+
+ button {
+  padding: 10px 20px;
+  background-color: #0052cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: #3e8e41;
+}
+button:active {
+  transform: scale(0.95);
+}
+button:focus {
+  outline: none;
+}
+.counter-container {
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+/* *******************Pop Up Section*************** */
 .card-container {
   display: flex;
 }
-
 .card-1 {
   height: 650px;
   width: 50%;
@@ -97,7 +157,6 @@
 }
 
 .btn button {
-  /* background-color: #000000; */
   border: none;
   color: white;
   padding: 12px 88px;
@@ -115,10 +174,6 @@
   justify-content: center;
   height: 400px;
   width: 400px;
-  /* margin: 0; */
-  /* gap: 30px; */
-  /* border: 5px solid gray; */
-  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 
 /* **************Carousel************* */
@@ -136,7 +191,6 @@ body {
   background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
-  color: red;
   margin: 0;
   padding: 0;
 }
@@ -150,8 +204,6 @@ body {
   text-align: center;
   font-size: 18px;
   background: #fff;
-
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -167,17 +219,9 @@ body {
 /* **************Add product Section************* */
 
 .container {
-  /* position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0; */
-  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-image: url("https://img.freepik.com/premium-photo/abstract-digital-communication_34629-318.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696896000&semt=ais"); */
-  /* background-repeat: no-repeat; */
 }
 .first {
   width: 350px;

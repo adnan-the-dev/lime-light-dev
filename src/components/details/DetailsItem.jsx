@@ -8,10 +8,15 @@ import {
   DialogTitle,
   Divider,
   DialogActions,
+  ButtonBase,
+  ToggleButtonGroup,
 } from "@mui/material";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const DetailsItem = () => {
+  const [counter, setCounter] = useState(0);
+
   const { id } = useParams();
   let home = useSelector((item) => {
     return item.productSection;
@@ -27,52 +32,67 @@ const DetailsItem = () => {
         <div className="container-fluid nav_bg">
           <div className="row">
             <div className="col-10 mx-auto">
-              {home.products.filter((item)=>item.id === id).map((data,i)=>{
-                return(
-              <div class="container-1" key={i}>
+              {home.products
+                ?.filter((item) => item.id === id)
+                ?.map((data, i) => {
+                  return (
+                    <div className="container-1" key={i}>
+                      <div
+                        style={{
+                          height: "580px",
+                          width: "500px",
+                          // border: "2px solid gray",
+                          borderRadius: "12px",
+                          overflow: "hidden",
+                          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                        }}
+                      >
+                        <img className="img-details" src={data.img} />
+                      </div>
 
-                <div class="image-details">
-                  <img src={data.img} />
-                </div>
-
-                <div class="container-2">
-                  <h1>{data.name}</h1>
-                  <h2>$: {data.price}</h2>
-                </div>
-
-              </div>
-                )
-              })
-              }
-              {/* <div className="imges-section">
-                {home.products
-                  .filter((item) => item.id === id)
-                  .map((data, i) => {
-                    return (
-                      <div key={i}>
-                        <div
-                          //   to={`/detailsitem/${home.id}/`}
-                          //   style={({}) => ({
-                          //     textDecoration: "none",
-                          //     color: "#000",
-                          //   })}
-                          style={{ textDecoration: "none", color: "#000" }}
-                        >
-                          <div className="card">
-                            <div className="imge">
-                              <h2>{data.name}</h2>
-                              <img src={data.img} alt="home" />
-                              <h3>$: {data.price}</h3>
-                              <button onClick={() => setOpen(true)}>
-                                QUICKVIEW
-                              </button>
-                            </div>
+                      <div className="container-2">
+                        <div style={{ textAlign: "center", marginTop: "12px" }}>
+                          <h1>{data.name}</h1>
+                        </div>
+                        <hr />
+                        <div style={{ textAlign: "center", marginTop: "12px" }}>
+                          <h2>Rs: {data.price}</h2>
+                        </div>
+                        <hr />
+                        <div className="discription-section">
+                          <div>
+                            <h4>DISCRIPTION</h4>
                           </div>
+                          <p>{data.description}</p>
+                        </div>
+                        <hr />
+                        <div className="counter-container ">
+                          <button onClick={() => setCounter(counter - 1)}>
+                            -
+                          </button>
+                          <h4>{counter}</h4>
+                          <button onClick={() => setCounter(counter + 1)}>
+                            +
+                          </button>
+                        </div>
+                        <hr />
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-around",
+                          }}
+                        >
+                          <Button variant="contained" color="primary" onClick={()=>{toast.success("Order pending details")}}>
+                            ORDER DETAILS
+                          </Button>
+                          <Button variant="contained" color="success" onClick={()=>{toast.success("Cart pending details")}}>
+                            ADD TO CART
+                          </Button>
                         </div>
                       </div>
-                    );
-                  })}
-              </div> */}
+                    </div>
+                  );
+                })}
             </div>
           </div>
         </div>
