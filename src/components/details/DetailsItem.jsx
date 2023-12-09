@@ -7,27 +7,44 @@ import {
   DialogContent,
   DialogTitle,
   Divider,
-  DialogActions
+  DialogActions,
 } from "@mui/material";
 import { useSelector } from "react-redux";
 
 const DetailsItem = () => {
   const { id } = useParams();
-  let home = useSelector((item)=>{
-    return item.productSection
-  })
+  let home = useSelector((item) => {
+    return item.productSection;
+  });
   const [open, setOpen] = useState(false);
 
-  const handleclose = () =>{
-    setOpen(false)
-  }
+  const handleclose = () => {
+    setOpen(false);
+  };
   return (
     <>
       <section id="header" className="">
         <div className="container-fluid nav_bg">
           <div className="row">
             <div className="col-10 mx-auto">
-              <div className="imges-section">
+              {home.products.filter((item)=>item.id === id).map((data,i)=>{
+                return(
+              <div class="container-1" key={i}>
+
+                <div class="image-details">
+                  <img src={data.img} />
+                </div>
+
+                <div class="container-2">
+                  <h1>{data.name}</h1>
+                  <h2>$: {data.price}</h2>
+                </div>
+
+              </div>
+                )
+              })
+              }
+              {/* <div className="imges-section">
                 {home.products
                   .filter((item) => item.id === id)
                   .map((data, i) => {
@@ -47,7 +64,7 @@ const DetailsItem = () => {
                               <img src={data.img} alt="home" />
                               <h3>$: {data.price}</h3>
                               <button onClick={() => setOpen(true)}>
-                                Add to Cart
+                                QUICKVIEW
                               </button>
                             </div>
                           </div>
@@ -55,7 +72,7 @@ const DetailsItem = () => {
                       </div>
                     );
                   })}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -78,8 +95,8 @@ const DetailsItem = () => {
           </DialogContent>
 
           <DialogActions sx={{ paddingBottom: "30px" }}>
-            <Button onClick={handleclose} variant="contained" color="success">
-              Place Order
+            <Button onClick={handleclose} variant="contained" color="primary">
+              ADD TO CART
             </Button>
           </DialogActions>
         </div>
