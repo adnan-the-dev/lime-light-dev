@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 // import required modules
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { useSelector } from "react-redux";
 // const imgse = useSelector((item)=>{
 //   return item.productSection
@@ -18,8 +18,8 @@ export const Carousal = () => {
   const imgs = [
     "https://www.limelight.pk/cdn/shop/files/final_1.jpg?v=1700655507",
     "https://www.limelight.pk/cdn/shop/files/Desktop-Banner-1920-X-600-Winter-Unstitched_1b09afe7-0cca-41a6-bf23-9d30713f276d.jpg?v=1701668727",
-    "https://www.limelight.pk/cdn/shop/files/final_1.jpg?v=1700655507",
-    "https://www.limelight.pk/cdn/shop/files/Desktop-Banner-1920-X-600-Winter-Unstitched_1b09afe7-0cca-41a6-bf23-9d30713f276d.jpg?v=1701668727",
+    'https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://images.pexels.com/photos/6347546/pexels-photo-6347546.jpeg?auto=compress&cs=tinysrgb&w=600'
   ];
   return (
     <>
@@ -27,13 +27,18 @@ export const Carousal = () => {
         <div className="container-fluid nav_bg">
           <div className="row">
             <div className="col-10 mx-auto">
-              <Swiper
+            <Swiper
+                autoplay={{
+                  delay: 3000,
+
+                }}
                 Navigation={true}
-                modules={[Navigation]}
+                modules={[Navigation,Autoplay]}
+                loop={true}
                 className="mySwiper"
               >
                 {imgs.map((img) => (
-                  <SwiperSlide>
+                  <SwiperSlide style={{height: '400px'}}>
                     <img src={img} alt="" />
                   </SwiperSlide>
                 ))}
