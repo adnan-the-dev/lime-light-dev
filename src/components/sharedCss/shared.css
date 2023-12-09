@@ -26,11 +26,11 @@
   margin-top: 12px;
   transition: transform 0.5s;
 }
-.card:hover {
-  /* background-color: red; */
-  /* transform: scale(1.2);
-    border: 1px solid rebeccapurple; */
-}
+/* .card:hover {
+  background-color: red;
+   transform: scale(1.2);
+    border: 1px solid rebeccapurple;
+} */
 /* *******************details section*************** */
 .container-1 {
   display: flex;
