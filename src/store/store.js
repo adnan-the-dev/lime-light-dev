@@ -1,15 +1,16 @@
+import { useEffect } from "react";
 import { combineReducers, createStore } from "redux";
 
 const initialItem = {
   products: [
     {
-      name: "ali",
+      name: "2 Piece Velvet",
       img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
       price: "23",
       id: "H00001",
     },
     {
-      name: "ali",
+      name: "2 Piece Velvet",
       img: "https://www.limelight.pk/cdn/shop/files/DSC08122_533x.jpg?v=1701671641",
       price: "23",
       id: "H00002",
@@ -35,15 +36,21 @@ const initialItem = {
   ],
 };
 
-function productSection(oldData=initialItem, newData) {
-  if(newData.type == 'ADD_DATA'){
-    oldData.products.push(newData.payload)
+function productSection(oldData = initialItem, newData) {
+  try {
+    oldData = {
+      ...oldData,
+      products: [...oldData.products],
+    };
+    if (newData.type == "ADD_DATA") {
+      oldData.products.push(newData.payload);
+    }
+  } catch (e) {
+    console.log(e.message);
   }
-  return oldData
-  
+  return oldData;
 }
 
-// const reducer = createReducer
-const allSlection = combineReducers({productSection})
+const allSlection = combineReducers({ productSection });
 
-export const total = createStore(allSlection)
+export const total = createStore(allSlection);
