@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import "../sharedCss/shared.css";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
+import { v4 } from 'uuid';
 const ProductAdd = () => {
   let { register, handleSubmit } = useForm();
 
@@ -13,11 +14,11 @@ const ProductAdd = () => {
       return
     }
     data.img = URL.createObjectURL(data.file[0]);
+    data.id = v4();
     dispatch({
       type:'ADD_DATA',
       payload:data
     })
-    console.log(data);
    toast.success("Product create")
   };
   return (

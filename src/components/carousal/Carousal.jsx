@@ -10,9 +10,14 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Navigation } from "swiper/modules";
-
+import { useSelector } from "react-redux";
+// const imgse = useSelector((item)=>{
+//   return item.productSection
+// })
 export const Carousal = () => {
   const imgs = [
+    "https://www.limelight.pk/cdn/shop/files/final_1.jpg?v=1700655507",
+    "https://www.limelight.pk/cdn/shop/files/Desktop-Banner-1920-X-600-Winter-Unstitched_1b09afe7-0cca-41a6-bf23-9d30713f276d.jpg?v=1701668727",
     "https://www.limelight.pk/cdn/shop/files/final_1.jpg?v=1700655507",
     "https://www.limelight.pk/cdn/shop/files/Desktop-Banner-1920-X-600-Winter-Unstitched_1b09afe7-0cca-41a6-bf23-9d30713f276d.jpg?v=1701668727",
   ];

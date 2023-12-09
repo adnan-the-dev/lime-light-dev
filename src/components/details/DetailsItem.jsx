@@ -9,9 +9,13 @@ import {
   Divider,
   DialogActions
 } from "@mui/material";
+import { useSelector } from "react-redux";
 
-const DetailsItem = ({ home }) => {
+const DetailsItem = () => {
   const { id } = useParams();
+  let home = useSelector((item)=>{
+    return item.productSection
+  })
   const [open, setOpen] = useState(false);
 
   const handleclose = () =>{
@@ -24,7 +28,7 @@ const DetailsItem = ({ home }) => {
           <div className="row">
             <div className="col-10 mx-auto">
               <div className="imges-section">
-                {home
+                {home.products
                   .filter((item) => item.id === id)
                   .map((data, i) => {
                     return (
