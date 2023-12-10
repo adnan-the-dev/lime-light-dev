@@ -17,7 +17,7 @@ const Card = ({ home }) => {
   };
   return (
     <div className="imges-section">
-      {home.products.map((home, i) => {
+      {home.products?.map((home, i) => {
         return (
           <div key={i}>
             <NavLink

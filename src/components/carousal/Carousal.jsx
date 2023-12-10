@@ -10,10 +10,6 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Autoplay, Navigation } from "swiper/modules";
-import { useSelector } from "react-redux";
-// const imgse = useSelector((item)=>{
-//   return item.productSection
-// })
 export const Carousal = () => {
   const imgs = [
     "https://www.limelight.pk/cdn/shop/files/final_1.jpg?v=1700655507",

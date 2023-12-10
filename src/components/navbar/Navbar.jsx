@@ -1,12 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import '../sharedCss/shared.css'
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Badge } from "@mui/material";
 const Navbar = () => {
   return (
     <>
-      <div className="container-fluid nav_bg">
+      <div className="container-fluid nav_bg" style={{position:'sticky',top:'0',zIndex: '1030'}}>
         <div className="row">
           <div className="col-10 mx-auto">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -64,7 +64,7 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                       <Badge badgeContent={4} color="primary">
-                        <ShoppingCartIcon/>
+                        {/* <ShoppingCartIcon/> */}
                       </Badge>
                     </li>
                   </ul>
