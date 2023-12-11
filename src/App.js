@@ -14,6 +14,7 @@ import { Provider } from "react-redux";
 import {total} from "./store/store";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { TotalOrders } from "./components/totalorders/TotalOrders";
 function App() {
   // const home = [
   //   {
@@ -59,6 +60,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/productadd" element={<ProductAdd />} />
           <Route path="/detailsitem/:id" element={<DetailsItem/>} />
+          <Route path="/total-orders" element={<TotalOrders/>} />
         </Routes>
         </Provider>
 

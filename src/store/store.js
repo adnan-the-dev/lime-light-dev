@@ -2,6 +2,13 @@ import { useEffect } from "react";
 import { combineReducers, createStore } from "redux";
 
 const initialItem = {
+  cart:[
+    {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120'
+    }
+  ],
   products: [
     {
       name: "2 Piece Velvet",
@@ -52,9 +59,15 @@ function productSection(oldData = initialItem, newData) {
       ...oldData,
       products: [...oldData.products],
     };
-    if (newData.type == "ADD_DATA") {
-      oldData.products.push(newData.payload);
+    switch(newData.type){
+      case "ADD_DATA":
+        oldData.products.push(newData.payload);
+        break;
+      case "ADD_TO_CART":
+        oldData.cart.push(newData.payload)
+        break;
     }
+    
   } catch (e) {
     console.log(e.message);
   }
