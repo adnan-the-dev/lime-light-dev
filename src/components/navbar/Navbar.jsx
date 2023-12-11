@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import '../sharedCss/shared.css'
-// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Badge } from "@mui/material";
 const Navbar = () => {
   return (
@@ -64,7 +64,7 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                       <Badge badgeContent={4} color="primary">
-                        {/* <ShoppingCartIcon/> */}
+                        <ShoppingCartIcon/>
                       </Badge>
                     </li>
                   </ul>
