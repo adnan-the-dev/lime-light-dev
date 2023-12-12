@@ -9,16 +9,16 @@ import {
   TableSortLabel,
 } from "@mui/material";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const TotalOrders = () => {
+  const dispatch = useDispatch();
   const cartItem = useSelector((item) => {
     return item.productSection.cart;
   });
-  //   console.log(cartItem, "cartItem");
   return (
     <section id="header" className="">
       <div className="container-fluid nav_bg">
@@ -26,9 +26,6 @@ export const TotalOrders = () => {
           <div className="col-10 mx-auto">
             <div className="main-container-table">
               <div className="table-section">
-                {/* stack-over-flow */}
-
-                <div className="App">
                   <Box sx={{ overflow: "auto" }}>
                     <Box
                       sx={{
@@ -38,7 +35,7 @@ export const TotalOrders = () => {
                       }}
                     >
                       <Table>
-                        <TableHead>
+                        <TableHead style={{backgroundColor:'darkcyan'}}>
                           <TableRow>
                             <TableCell>
                               <TableSortLabel>LOGO</TableSortLabel>
@@ -47,7 +44,7 @@ export const TotalOrders = () => {
                               <TableSortLabel>Product Name</TableSortLabel>
                             </TableCell>
                             <TableCell>
-                              <TableSortLabel>Count</TableSortLabel>
+                              <TableSortLabel>Code</TableSortLabel>
                             </TableCell>
                             <TableCell>
                               <TableSortLabel>Price</TableSortLabel>
@@ -58,9 +55,9 @@ export const TotalOrders = () => {
                             {/* <TableCell align={"right"}>Delete</TableCell> */}
                           </TableRow>
                         </TableHead>
-                        {cartItem?.map((item) => {
+                        {cartItem?.map((item,i) => {
                           return (
-                            <TableBody>
+                            <TableBody key={i}>
                               <TableRow hover>
                                 <TableCell>
                                   <Box
@@ -94,10 +91,16 @@ export const TotalOrders = () => {
                                   </Box>
                                 </TableCell>
                                 <TableCell>{item.name}</TableCell>
-                                <TableCell>Tester</TableCell>
+                                <TableCell>{item.id}</TableCell>
                                 <TableCell>{item.price}</TableCell>
                                 <TableCell>
-                                  <DeleteIcon style={{cursor:'pointer'}} onClick={()=>{toast.error("Pending Delete Module")}} />
+                                  <DeleteIcon style={{cursor:'pointer',color:'red'}} onClick={()=>{
+                                    dispatch({
+                                      type:"DELETET_ITEM",
+                                      payload:item.id
+                                    })
+                                    toast.success("Item Delete")
+                                  }} />
                                 </TableCell>
                               </TableRow>
                             </TableBody>
@@ -106,8 +109,6 @@ export const TotalOrders = () => {
                       </Table>
                     </Box>
                   </Box>
-                </div>
-                {/* stack-over-flow */}
               </div>
             </div>
           </div>

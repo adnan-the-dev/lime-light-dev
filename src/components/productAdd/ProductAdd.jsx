@@ -39,7 +39,7 @@ const ProductAdd = () => {
                         autoComplete="off"
                         name="name"
                         id="name"
-                        placeholder="Enter your name"
+                        placeholder="Enter your product name"
                         {...register("name")}
                       />
                     </div>
@@ -48,8 +48,17 @@ const ProductAdd = () => {
                         type="number"
                         autoComplete="off"
                         name="price"
-                        placeholder="Enter your Price"
+                        placeholder="Enter your product Price"
                         {...register("price")}
+                      />
+                    </div>
+                    <div className="input-block">
+                      <input
+                        type="name"
+                        autoComplete="off"
+                        name="description"
+                        placeholder="Enter your product description"
+                        {...register("description")}
                       />
                     </div>
                     <div className="input-block">

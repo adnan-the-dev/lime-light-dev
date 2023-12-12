@@ -23,6 +23,7 @@ const DetailsItem = () => {
   const detailsData = useSelector((item) => item.productSection.products).find(
     (item) => item.id == id
   );
+  // console.log(detailsData,'description');
   // let home = useSelector((item) => {
   //   return item.productSection;
   // });
@@ -84,7 +85,7 @@ const DetailsItem = () => {
                         variant="contained"
                         color="primary"
                         onClick={() => {
-                          toast.success("Order pending details");
+                          toast.success("Check the order");
                         }}
                       >
                         ORDER DETAILS
