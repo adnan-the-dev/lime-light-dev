@@ -8,6 +8,7 @@ const Home = () => {
   })
   return (
     <>
+      {/* <button onClick={()=>localStorage.setItem('hello',JSON.stringify(data))}>localStorage</button> */}
       <section id="header" className="">
               <Carousal/>
         <div className="container-fluid nav_bg">

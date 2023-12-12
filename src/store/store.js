@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { combineReducers, createStore } from "redux";
 
 const initialItem = {
@@ -6,8 +5,77 @@ const initialItem = {
     {
       name:'hello',
       img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120'
-    }
+      price:'120',
+      id:'H00021'
+    },
+    {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120',
+      id:'H00021'
+    },
+    {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120',
+      id:'H00021'
+    },
+    {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120',
+      id:'H00021'
+    },
+    {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120',
+      id:'H00021'
+    },
+    {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120',
+      id:'H00021'
+    },
+    {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120',
+      id:'H00021'
+    },
+    {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120',
+      id:'H00021'
+    },
+    {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120',
+      id:'H00021'
+    }, {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120',
+      id:'H00021'
+    }, {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120',
+      id:'H00021'
+    }, {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120',
+      id:'H00021'
+    }, {
+      name:'hello',
+      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+      price:'120',
+      id:'H00021'
+    },
   ],
   products: [
     {
@@ -58,6 +126,7 @@ function productSection(oldData = initialItem, newData) {
     oldData = {
       ...oldData,
       products: [...oldData.products],
+      cart:[...oldData.cart]
     };
     switch(newData.type){
       case "ADD_DATA":
@@ -65,6 +134,10 @@ function productSection(oldData = initialItem, newData) {
         break;
       case "ADD_TO_CART":
         oldData.cart.push(newData.payload)
+        break;
+        case "DELETET_ITEM":
+        let deleteUser = oldData.cart.findIndex(cart=>cart.id == newData.payload)
+          oldData.cart.splice(deleteUser , 1)
         break;
     }
     
