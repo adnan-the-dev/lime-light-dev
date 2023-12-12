@@ -44,7 +44,7 @@ export const TotalOrders = () => {
                               <TableSortLabel>Product Name</TableSortLabel>
                             </TableCell>
                             <TableCell>
-                              <TableSortLabel>Count</TableSortLabel>
+                              <TableSortLabel>Code</TableSortLabel>
                             </TableCell>
                             <TableCell>
                               <TableSortLabel>Price</TableSortLabel>
@@ -91,7 +91,7 @@ export const TotalOrders = () => {
                                   </Box>
                                 </TableCell>
                                 <TableCell>{item.name}</TableCell>
-                                <TableCell>Tester</TableCell>
+                                <TableCell>{item.id}</TableCell>
                                 <TableCell>{item.price}</TableCell>
                                 <TableCell>
                                   <DeleteIcon style={{cursor:'pointer',color:'red'}} onClick={()=>{

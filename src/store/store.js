@@ -8,74 +8,7 @@ const initialItem = {
       price:'120',
       id:'H00021'
     },
-    {
-      name:'hello',
-      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120',
-      id:'H00021'
-    },
-    {
-      name:'hello',
-      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120',
-      id:'H00021'
-    },
-    {
-      name:'hello',
-      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120',
-      id:'H00021'
-    },
-    {
-      name:'hello',
-      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120',
-      id:'H00021'
-    },
-    {
-      name:'hello',
-      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120',
-      id:'H00021'
-    },
-    {
-      name:'hello',
-      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120',
-      id:'H00021'
-    },
-    {
-      name:'hello',
-      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120',
-      id:'H00021'
-    },
-    {
-      name:'hello',
-      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120',
-      id:'H00021'
-    }, {
-      name:'hello',
-      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120',
-      id:'H00021'
-    }, {
-      name:'hello',
-      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120',
-      id:'H00021'
-    }, {
-      name:'hello',
-      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120',
-      id:'H00021'
-    }, {
-      name:'hello',
-      img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
-      price:'120',
-      id:'H00021'
-    },
+    
   ],
   products: [
     {
