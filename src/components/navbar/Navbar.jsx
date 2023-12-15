@@ -63,6 +63,16 @@ const Navbar = () => {
                       </NavLink>
                     </li>
                     <li className="nav-item">
+                      <NavLink className="nav-link" to='/login'>
+                        Login
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to='/registration'>
+                        Registration
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
                       <Badge badgeContent={4} color="primary">
                         <ShoppingCartIcon/>
                       </Badge>
