@@ -15,6 +15,8 @@ import {total} from "./store/store";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { TotalOrders } from "./components/totalorders/TotalOrders";
+import { Login } from "./components/login/Login";
+import { Registration } from "./components/registration/Registration";
 function App() {
   // const home = [
   //   {
@@ -61,6 +63,8 @@ function App() {
           <Route path="/productadd" element={<ProductAdd />} />
           <Route path="/detailsitem/:id" element={<DetailsItem/>} />
           <Route path="/total-orders" element={<TotalOrders/>} />
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/registration" element={<Registration/>}/>
         </Routes>
         </Provider>
 
