@@ -19,6 +19,7 @@ export const TotalOrders = () => {
   const cartItem = useSelector((item) => {
     return item.productSection.cart;
   });
+  
   return (
     <section id="header" className="">
       <div className="container-fluid nav_bg">
