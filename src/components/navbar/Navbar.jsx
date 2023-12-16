@@ -4,6 +4,9 @@ import '../sharedCss/shared.css'
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Badge } from "@mui/material";
 const Navbar = () => {
+  const userData = localStorage.getItem("allUserData")
+  const user = JSON.parse(userData)
+  console.log(user,'user');
   return (
     <>
       <div className="container-fluid nav_bg" style={{position:'sticky',top:'0',zIndex: '1030'}}>
@@ -14,6 +17,9 @@ const Navbar = () => {
                 <NavLink className="navbar-brand" to="/">
                 The Dev Web
                 </NavLink>
+                <li className="nav-item" style={{listStyle:'none' ,color:'red'}}>
+                        Wellcom to:{user.username}
+                    </li>
                 <button
                   className="navbar-toggler"
                   type="button"
@@ -62,21 +68,28 @@ const Navbar = () => {
                         AddProduct
                       </NavLink>
                     </li>
+                    {
+                      !user ? 
                     <li className="nav-item">
                       <NavLink className="nav-link" to='/login'>
                         Login
                       </NavLink>
-                    </li>
+                    </li> : null
+                    }
+                    {
+                      !user ? 
                     <li className="nav-item">
                       <NavLink className="nav-link" to='/registration'>
                         Registration
                       </NavLink>
-                    </li>
+                    </li>:null
+                    }
                     <li className="nav-item">
                       <Badge badgeContent={4} color="primary">
                         <ShoppingCartIcon/>
                       </Badge>
                     </li>
+                   
                   </ul>
                 </div>
               </div>

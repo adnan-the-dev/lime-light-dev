@@ -3,70 +3,60 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import About from "./components/about/About";
 import Home from "./components/home/Home";
 import Navbar from "./components/navbar/Navbar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Services from "./components/services/Services";
 import Contact from "./components/contact/Contact";
 import ProductAdd from "./components/productAdd/ProductAdd";
 import DetailsItem from "./components/details/DetailsItem";
-import { v4 } from "uuid";
-import { Carousal } from "./components/carousal/Carousal";
 import { Provider } from "react-redux";
-import {total} from "./store/store";
+import { total } from "./store/store";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { TotalOrders } from "./components/totalorders/TotalOrders";
 import { Login } from "./components/login/Login";
 import { Registration } from "./components/registration/Registration";
 function App() {
-  // const home = [
-  //   {
-  //     name:'ali',
-  //     img:'https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047',
-  //     price:'23',
-  //     id:v4()
-  //   },
-  //   {
-  //     name:'ali',
-  //     img:'https://www.limelight.pk/cdn/shop/files/DSC08122_533x.jpg?v=1701671641',
-  //     price:'23',
-  //     id:v4()
-  //   },
-  //   {
-  //     name:'ali',
-  //     img:'https://www.limelight.pk/cdn/shop/files/DSC08076_533x.jpg?v=1701067463',
-  //     price:'23',
-  //     id:v4()
-  //   },
-  //   {
-  //     name:'ali',
-  //     img:'https://www.limelight.pk/cdn/shop/files/DSC03913_1_533x.jpg?v=1700725699',
-  //     price:'23',
-  //     id:v4()
-  //   },
-  //   {
-  //     name:'ali',
-  //     img:'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-james-wheeler-417074.jpg&fm=jpg',
-  //     price:'23',
-  //     id:v4()
-  //   }
-  // ]
+
+
+  // function Main() {
+  //   return (
+  //     <Routes>
+  //       <Route path="/">
+  //       <Route path="/" element={<Home /> } />
+  //       <Route path="/about" element={<About />} />
+  //       <Route path="/services" element={<Services />} />
+  //       <Route path="/contact" element={<Contact />} />
+  //       <Route path="/productadd" element={<ProductAdd />} />
+  //       <Route path="/detailsitem/:id" element={<DetailsItem />} />
+  //       <Route path="/total-orders" element={<TotalOrders />} />
+  //       </Route>
+
+  //     </Routes>
+  //   )
+  // }
   return (
     <>
       <Navbar />
       <ToastContainer />
       <Provider store={total}>
+        {/* <Routes>
+          <Route path="/*" element={userData ? <Main /> : <Navigate replace to='/login' />}>
+            <Route path="login" element={<Login />} />
+            <Route path="registration" element={<Registration />} />
+          </Route>
+        </Routes> */}
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/productadd" element={<ProductAdd />} />
-          <Route path="/detailsitem/:id" element={<DetailsItem/>} />
-          <Route path="/total-orders" element={<TotalOrders/>} />
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/registration" element={<Registration/>}/>
+          <Route path="/" element={<Home /> } />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/productadd" element={<ProductAdd />} />
+        <Route path="/detailsitem/:id" element={<DetailsItem />} />
+        <Route path="/total-orders" element={<TotalOrders />} />
+        <Route path="login" element={<Login />} />
+            <Route path="registration" element={<Registration />} />
         </Routes>
-        </Provider>
+      </Provider>
 
     </>
   );

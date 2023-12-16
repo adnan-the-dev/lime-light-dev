@@ -1,39 +1,41 @@
 import React, { useEffect, useState } from "react";
 import "../sharedCss/shared.css";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
-import { json } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 export const Registration = () => {
-  const [data, setData] = useState([]);
-  console.log(data,'data');
-  let { register, handleSubmit } = useForm();
+  const navigate = useNavigate()
+  let { register, handleSubmit, reset } = useForm();
   const getDataAllData = (data) => {
-    console.log(data);
-    toast.success("User registred");
+    const formData = {
+      username: data.name,
+      email: data.email,
+      password: data.password
+    }
+    registerUser(formData)
+    reset()
   };
 
-    async function registerApi(){
-      const res = await fetch('http://localhost:8800/api/auth/register')
-      .then(res=>res.json()).then(json=>json)
+  const registerUser = async (userData) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8800/api/auth/register",
+        userData
+      );
 
-      setData(res)
+      if (response.status === 200) {
+        toast.success(`${response?.data?.username} registered successfully`)
+        navigate('/login')
+      } else {
+        console.error("Registration failed:", response.data);
+        toast.error(`${response?.data}some error ecourd`)
+      }
+    } catch (error) {
+      console.error("An error occurred during registration:", error.message);
     }
-
-    useEffect(()=>{
-      registerApi
-    },[])
-
-//   useEffect(() => {
-//     axios
-//       .get("http://localhost:8800/api/auth/register")
-//       .then((res) => {
-//         setData(res.data);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//   }, []);
+  };
 
   return (
     <>
@@ -46,7 +48,6 @@ export const Registration = () => {
                   <div className="heading">
                     <h1>Registration</h1>
                   </div>
-                  {/* <button onClick={registerApi}>hello</button> */}
                   <form onSubmit={handleSubmit(getDataAllData)}>
                     <div className="input-block">
                       <input

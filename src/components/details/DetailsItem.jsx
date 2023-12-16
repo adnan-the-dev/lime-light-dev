@@ -23,15 +23,6 @@ const DetailsItem = () => {
   const detailsData = useSelector((item) => item.productSection.products).find(
     (item) => item.id == id
   );
-  // console.log(detailsData,'description');
-  // let home = useSelector((item) => {
-  //   return item.productSection;
-  // });
-  // const [open, setOpen] = useState(false);
-
-  // const handleclose = () => {
-  //   setOpen(false);
-  // };
   return (
     <>
       <section id="header" className="">
