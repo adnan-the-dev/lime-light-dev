@@ -72,6 +72,10 @@ function productSection(oldData = initialItem, newData) {
         let deleteUser = oldData.cart.findIndex(cart=>cart.id == newData.payload)
           oldData.cart.splice(deleteUser , 1)
         break;
+        case "DELETET_PRODUCT":
+          let deleteProducts = oldData.products.findIndex(products=>products.id == newData.payload)
+            oldData.products.splice(deleteProducts , 1)
+          break;
     }
     
   } catch (e) {
@@ -83,3 +87,4 @@ function productSection(oldData = initialItem, newData) {
 const allSlection = combineReducers({ productSection });
 
 export const total = createStore(allSlection);
+

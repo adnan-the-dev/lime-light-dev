@@ -13,7 +13,7 @@ const Home = () => {
               <Carousal/>
         <div className="container-fluid nav_bg">
           <div className="row">
-            <div className="col-10 mx-auto">
+            <div className="col-15 mx-auto">
               <Card home={data} />
             </div>
           </div>

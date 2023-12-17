@@ -19,6 +19,7 @@
 }
 
 .card {
+  overflow: hidden;
   border-radius: 8px;
   box-shadow: -3px 4px 11px 2px rgba(143, 140, 140, 0.062);
   border: 1px solid gray;

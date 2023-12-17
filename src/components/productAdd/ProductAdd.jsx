@@ -4,9 +4,10 @@ import "../sharedCss/shared.css";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { v4 } from 'uuid';
+import { useNavigate } from "react-router-dom";
 const ProductAdd = () => {
-  let { register, handleSubmit } = useForm();
-
+  let { register, handleSubmit ,reset} = useForm();
+  const navigate = useNavigate() 
   const dispatch = useDispatch()
   const getDataAllData = (data) => {
     if(!data.file.length){
@@ -20,6 +21,8 @@ const ProductAdd = () => {
       payload:data
     })
    toast.success("Product create")
+  //  reset()
+  navigate('/')
   };
   return (
     <>

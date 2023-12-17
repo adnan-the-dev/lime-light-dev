@@ -49,7 +49,7 @@ const DetailsItem = () => {
                   </div>
                   <hr />
                   <div style={{ textAlign: "center", marginTop: "12px" }}>
-                    <h2>Rs: {detailsData.price}</h2>
+                    <h3>Rs: {detailsData.price}</h3>
                   </div>
                   <hr />
                   <div className="discription-section">

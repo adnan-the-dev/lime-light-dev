@@ -3,9 +3,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import About from "./components/about/About";
 import Home from "./components/home/Home";
 import Navbar from "./components/navbar/Navbar";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Services from "./components/services/Services";
-import Contact from "./components/contact/Contact";
 import ProductAdd from "./components/productAdd/ProductAdd";
 import DetailsItem from "./components/details/DetailsItem";
 import { Provider } from "react-redux";
@@ -15,6 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { TotalOrders } from "./components/totalorders/TotalOrders";
 import { Login } from "./components/login/Login";
 import { Registration } from "./components/registration/Registration";
+import UserDetails from "./components/userDetails/UserDetails";
 function App() {
 
 
@@ -49,7 +49,7 @@ function App() {
           <Route path="/" element={<Home /> } />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/userdetails" element={<UserDetails />} />
         <Route path="/productadd" element={<ProductAdd />} />
         <Route path="/detailsitem/:id" element={<DetailsItem />} />
         <Route path="/total-orders" element={<TotalOrders />} />
