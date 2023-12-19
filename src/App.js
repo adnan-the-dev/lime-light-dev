@@ -36,9 +36,10 @@ function App() {
   // }
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <ToastContainer />
       <Provider store={total}>
+      <Navbar />
         {/* <Routes>
           <Route path="/*" element={userData ? <Main /> : <Navigate replace to='/login' />}>
             <Route path="login" element={<Login />} />
@@ -46,15 +47,15 @@ function App() {
           </Route>
         </Routes> */}
         <Routes>
-          <Route path="/" element={<Home /> } />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/userdetails" element={<UserDetails />} />
-        <Route path="/productadd" element={<ProductAdd />} />
-        <Route path="/detailsitem/:id" element={<DetailsItem />} />
-        <Route path="/total-orders" element={<TotalOrders />} />
-        <Route path="login" element={<Login />} />
-            <Route path="registration" element={<Registration />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/userdetails" element={<UserDetails />} />
+          <Route path="/productadd" element={<ProductAdd />} />
+          <Route path="/detailsitem/:id" element={<DetailsItem />} />
+          <Route path="/total-orders" element={<TotalOrders />} />
+          <Route path="login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
         </Routes>
       </Provider>
 

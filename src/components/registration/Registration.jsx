@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../sharedCss/shared.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -15,13 +15,13 @@ export const Registration = () => {
       password: data.password
     }
     registerUser(formData)
-    reset()
+    // reset()
   };
-
+  const baseUrl = process.env.REACT_APP_BASE_URL
   const registerUser = async (userData) => {
     try {
       const response = await axios.post(
-        "http://localhost:8800/api/auth/register",
+        `${baseUrl}/api/auth/register`,
         userData
       );
 
@@ -37,6 +37,12 @@ export const Registration = () => {
     }
   };
 
+  useEffect(()=>{
+  if(localStorage.getItem("allUserData")){
+    navigate("/")
+  }
+
+  },[])
   return (
     <>
       <section id="header" className="">

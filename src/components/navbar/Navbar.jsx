@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import '../sharedCss/shared.css'
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Avatar, Badge, Box, IconButton, Menu, MenuItem, Tooltip, Typography } from "@mui/material";
+import { useSelector } from "react-redux";
 const Navbar = () => {
   const userData = localStorage.getItem("allUserData")
   const user = JSON.parse(userData)
@@ -21,6 +22,9 @@ const Navbar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const cartItem = useSelector((item) => {
+    return item.productSection.cart;
+  });
   return (
     <>
       <div className="container-fluid nav_bg" style={{ position: 'sticky', top: '0', zIndex: '1030' }}>
@@ -28,9 +32,9 @@ const Navbar = () => {
           <div className="col-15 mx-auto">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <div className="container-fluid">
-                <NavLink className="navbar-brand" to="/">
+                <a className="navbar-brand">
                   The Dev Web
-                </NavLink>
+                </a>
                 {/* <li className="nav-item" style={{ listStyle: 'none', color: 'red' }}>
                   Wellcom to:{user?.username}
                 </li> */}
@@ -103,6 +107,7 @@ const Navbar = () => {
                     
                     {
                       user ? 
+                      <>
                     <Box sx={{ flexGrow: 0 }}>
                       <Tooltip title="Open settings">
                         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -134,22 +139,15 @@ const Navbar = () => {
                         {/* ))} */}
                       </Menu>
                     </Box>
+                       <li className="nav-item">
+                       <Badge badgeContent={cartItem.length || '0'} color="primary">
+                         <ShoppingCartIcon />
+                       </Badge>
+                     </li>
+                     </>
                     :null
                     }
-
-
-
-
-
-
-
-
-
-                    <li className="nav-item">
-                      <Badge badgeContent={4} color="primary">
-                        <ShoppingCartIcon />
-                      </Badge>
-                    </li>
+                 
 
                   </ul>
                 </div>

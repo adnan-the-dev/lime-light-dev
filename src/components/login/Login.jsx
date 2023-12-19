@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./login.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+
 // import '../sharedCss/shared.css'
 export const Login = () => {
   const navigate = useNavigate()
@@ -15,11 +16,11 @@ export const Login = () => {
     }
     registerUser(formData)
   }
-
+const baseUrl = process.env.REACT_APP_BASE_URL
   const registerUser = async (userData) => {
     try {
       const response = await axios.post(
-        "http://localhost:8800/api/auth/login",
+        `${baseUrl}/api/auth/login`,
         userData
       );
 
@@ -36,7 +37,12 @@ export const Login = () => {
       console.error("An error occurred during registration:", error.message);
     }
   };
-
+  useEffect(()=>{
+    if(localStorage.getItem("allUserData")){
+      navigate("/")
+    }
+  
+    },[])
   return (
     <>
       <section id="header" className="">
