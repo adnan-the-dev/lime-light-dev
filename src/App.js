@@ -1,4 +1,5 @@
-import React from "react";
+import './App.css';
+import React, { createContext, useState } from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import About from "./components/about/About";
 import Home from "./components/home/Home";
@@ -15,37 +16,15 @@ import { TotalOrders } from "./components/totalorders/TotalOrders";
 import { Login } from "./components/login/Login";
 import { Registration } from "./components/registration/Registration";
 import UserDetails from "./components/userDetails/UserDetails";
+
 function App() {
 
-
-  // function Main() {
-  //   return (
-  //     <Routes>
-  //       <Route path="/">
-  //       <Route path="/" element={<Home /> } />
-  //       <Route path="/about" element={<About />} />
-  //       <Route path="/services" element={<Services />} />
-  //       <Route path="/contact" element={<Contact />} />
-  //       <Route path="/productadd" element={<ProductAdd />} />
-  //       <Route path="/detailsitem/:id" element={<DetailsItem />} />
-  //       <Route path="/total-orders" element={<TotalOrders />} />
-  //       </Route>
-
-  //     </Routes>
-  //   )
-  // }
   return (
     <>
       {/* <Navbar /> */}
       <ToastContainer />
       <Provider store={total}>
       <Navbar />
-        {/* <Routes>
-          <Route path="/*" element={userData ? <Main /> : <Navigate replace to='/login' />}>
-            <Route path="login" element={<Login />} />
-            <Route path="registration" element={<Registration />} />
-          </Route>
-        </Routes> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -58,7 +37,6 @@ function App() {
           <Route path="/registration" element={<Registration />} />
         </Routes>
       </Provider>
-
     </>
   );
 }

@@ -33,8 +33,8 @@ export const Carousal = () => {
                 loop={true}
                 className="mySwiper"
               >
-                {imgs.map((img) => (
-                  <SwiperSlide style={{height: '450px'}}>
+                {imgs.map((img ,i) => (
+                  <SwiperSlide key={i} style={{height: '450px'}}>
                     <img src={img} alt="" />
                   </SwiperSlide>
                 ))}

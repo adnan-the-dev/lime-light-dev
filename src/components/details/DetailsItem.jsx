@@ -40,23 +40,22 @@ const DetailsItem = () => {
                     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
                   }}
                 >
-                  <img className="img-details" src={detailsData.img} />
+                  <img src={detailsData?.img} alt="hello" className="img-details"></img>
                 </div>
-
                 <div className="container-2">
                   <div style={{ textAlign: "center", marginTop: "12px" }}>
-                    <h1>{detailsData.name}</h1>
+                    <h1>{detailsData?.name}</h1>
                   </div>
                   <hr />
                   <div style={{ textAlign: "center", marginTop: "12px" }}>
-                    <h3>Rs: {detailsData.price}</h3>
+                    <h3>Rs: {detailsData?.price}</h3>
                   </div>
                   <hr />
                   <div className="discription-section">
                     <div>
                       <h4>DESCRIPTION</h4>
                     </div>
-                    <p>{detailsData.description}</p>
+                    <p>{detailsData?.description}</p>
                   </div>
                   <hr />
                   <div className="counter-container ">

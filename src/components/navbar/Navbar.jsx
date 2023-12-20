@@ -9,7 +9,7 @@ const Navbar = () => {
   const user = JSON.parse(userData)
   const navigate = useNavigate()
 
-  const logout = () =>{
+  const logout = () => {
     localStorage.clear();
     navigate('/registration')
   }
@@ -104,50 +104,50 @@ const Navbar = () => {
                           </li>
                         </>
                     }
-                    
+
                     {
-                      user ? 
-                      <>
-                    <Box sx={{ flexGrow: 0 }}>
-                      <Tooltip title="Open settings">
-                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                          <Avatar alt={user?.username} src="/static/images/avatar/2.jpg" />
-                        </IconButton>
-                      </Tooltip>
-                      <Menu
-                        sx={{ mt: '45px' }}
-                        id="menu-appbar"
-                        anchorEl={anchorElUser}
-                        anchorOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        open={Boolean(anchorElUser)}
-                        onClose={handleCloseUserMenu}
-                      >
-                        {/* {settings.map((setting) => ( */}
-                          {/* <MenuItem key={setting} onClick={handleCloseUserMenu}> */}
-                          <MenuItem>
-                            <Typography textAlign="center" onClick={()=> logout()}>Logout</Typography>
-                          </MenuItem>
-                            <Typography textAlign="center">{user?.email}</Typography>
-                        {/* ))} */}
-                      </Menu>
-                    </Box>
-                       <li className="nav-item">
-                       <Badge badgeContent={cartItem.length || '0'} color="primary">
-                         <ShoppingCartIcon />
-                       </Badge>
-                     </li>
-                     </>
-                    :null
+                      user ?
+                        <>
+                          <Box sx={{ flexGrow: 0 }}>
+                            <Tooltip title="Open settings">
+                              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                <Avatar alt={user?.username} src="/static/images/avatar/2.jpg" />
+                              </IconButton>
+                            </Tooltip>
+                            <Menu
+                              sx={{ mt: '45px' }}
+                              id="menu-appbar"
+                              anchorEl={anchorElUser}
+                              anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                              }}
+                              keepMounted
+                              transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                              }}
+                              open={Boolean(anchorElUser)}
+                              onClose={handleCloseUserMenu}
+                            >
+                              {/* {settings.map((setting) => ( */}
+                              {/* <MenuItem key={setting} onClick={handleCloseUserMenu}> */}
+                              <MenuItem>
+                                <Typography textAlign="center" onClick={() => logout()}>Logout</Typography>
+                              </MenuItem>
+                              <Typography textAlign="center">{user?.email}</Typography>
+                              {/* ))} */}
+                            </Menu>
+                          </Box>
+                          <NavLink to='/total-orders' className="nav-item">
+                            <Badge badgeContent={cartItem.length || '0'} color="primary">
+                              <ShoppingCartIcon />
+                            </Badge>
+                          </NavLink>
+                        </>
+                        : null
                     }
-                 
+
 
                   </ul>
                 </div>

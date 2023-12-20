@@ -12,7 +12,7 @@ const Card = ({ home }) => {
         return (
           <div key={i}>
             <NavLink
-              to={`/detailsitem/${home.id}/`}
+              to={`/detailsitem/${home.id}`}
               style={({}) => ({
                 textDecoration: "none",
                 color: "#000",
@@ -20,9 +20,11 @@ const Card = ({ home }) => {
             >
               <div className="card">
                 <div className="imge">
-                  <h3>{home.name}</h3>
+                  <div className="cart-name-set">
+                  <h4>{home.name}</h4>
+                  </div>
                   <img src={home.img} alt="home" />
-                  <h3>$: {home.price}</h3>
+                  <h4>Rs: {home.price}</h4>
                 </div>
               </div>
             </NavLink>

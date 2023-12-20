@@ -3,11 +3,11 @@ import Card from "../card/Card";
 import { useSelector } from "react-redux";
 import { Carousal } from "../carousal/Carousal";
 import Category from "../catagorytype/Category";
+import { NavLink } from "react-router-dom";
 const Home = () => {
   const data = useSelector((item) => {
     return item.productSection
   })
-
   let catago = [
     {
       img: 'https://www.limelight.pk/cdn/shop/files/LL-Homepage_bubble_Women-15-Nov-23_300x.png?v=1700045851',
@@ -36,30 +36,32 @@ const Home = () => {
           <div className="row">
             <div className="col-15 mx-auto">
               <hr style={{ border: "2px solid #8f7960" }} />
-              <h1 style={{ textAlign: 'center', color: 'black' ,fontWeight:"600" }}>Shop By Category</h1>
+              <h1 style={{ textAlign: 'center', color: 'black', fontWeight: "600" }}>Shop By Category</h1>
               <Category cat={catago} />
               <hr style={{ border: "2px solid #8f7960" }} />
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                flexDirection:'row',
+                flexDirection: 'row',
                 // gap: '3rem',
                 marginTop: "2rem"
               }}>
-              {
-                btnNewSale.map((item) => {
-                  return (
-                      <button>{item}</button>
-                  )
-                })
-              }
-                  </div>
-                  <div className="col-4 mx-auto">
-              <hr style={{ border: "2px solid #8f7960" ,marginTop:'2rem'}} />
+                {
+                  btnNewSale.map((item, i) => {
+                    return (
+                      <NavLink to={item} key={i}>
+                        <button>{item}</button>
+                      </NavLink>
+                    )
+                  })
+                }
+              </div>
+              <div className="col-4 mx-auto">
+                <hr style={{ border: "2px solid #8f7960", marginTop: '2rem' }} />
 
-                  </div>
-              <h1 style={{ textAlign: 'center', color: 'black' ,fontWeight:"600"}}>New Arrivals</h1>
+              </div>
+              <h1 style={{ textAlign: 'center', color: 'black', fontWeight: "600" }}>New Arrivals</h1>
               <Card home={data} />
             </div>
           </div>
@@ -70,3 +72,6 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
