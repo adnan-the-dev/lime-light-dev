@@ -32,7 +32,8 @@ const UserDetails = () => {
     if (response.status == 200) {
   console.log(response,'responce');
       setData(response?.data)
-      setLoading(false)
+      setLoading(false) 
+      console.log();
     }
   }
   // // get all user Api end
