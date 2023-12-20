@@ -285,3 +285,10 @@ body {
 .table-header{
   color:white;
 }
+
+.nav-item{
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 9px;
+}

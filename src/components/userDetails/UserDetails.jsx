@@ -18,34 +18,37 @@ import { toast } from 'react-toastify';
 
 const UserDetails = () => {
   const [data, setData] = useState([])
+  console.log(data,'data');
   const [loading, setLoading] = useState(false)
+  const baseUrl = process.env.REACT_APP_BASE_URL
 
   // get all user Api
   async function getUserData() {
     setLoading(true)
     const response = await axios.get(
-      "http://localhost:8800/api/users"
+      `${baseUrl}/api/users`
     );
     // console.log(response, 'res');
     if (response.status == 200) {
+  console.log(response,'responce');
       setData(response?.data)
       setLoading(false)
     }
   }
-  // get all user Api end
+  // // get all user Api end
 
-  async function deleteItem (itemId){
-    // console.log(itemId,'hello')
-    const res = await axios.delete(`http://localhost:8800/api/users/${itemId}`)
-    if(res.status == 200){
-      toast.success(`${res} item delete`)
-    } else {
-      // console.error("Registration failed:", res);
-      toast.error(`${res}some error ecourd`)
-    }
-  }
+  // async function deleteItem (itemId){
+  //   // console.log(itemId,'hello')
+  //   const res = await axios.delete(`http://localhost:8800/api/users/${itemId}`)
+  //   if(res.status == 200){
+  //     toast.success(`${res} item delete`)
+  //   } else {
+  //     // console.error("Registration failed:", res);
+  //     toast.error(`${res}some error ecourd`)
+  //   }
+  // }
 
-  // Delete user Api
+  // // Delete user Api
   useEffect(() => {
     getUserData()
   }, [])
@@ -115,7 +118,7 @@ const UserDetails = () => {
                                     </TableCell>
                                     <TableCell>
                                       <DeleteIcon style={{cursor:'pointer'}} onClick={()=>{
-                                        deleteItem(item._id)
+                                        // deleteItem(item._id)
                                         // toast.error("Hello world")
                                       }} />
                                     </TableCell>
