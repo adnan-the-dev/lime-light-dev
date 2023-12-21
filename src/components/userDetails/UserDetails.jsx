@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import {
-  Avatar,
   Box,
   Table,
   TableBody,
@@ -10,11 +9,9 @@ import {
   TableSortLabel,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Bars, Circles, DNA, RevolvingDot } from 'react-loader-spinner';
+import { Circles} from 'react-loader-spinner';
 import { UpdateOutlined } from '@mui/icons-material';
-import { toast } from 'react-toastify';
 
 const UserDetails = () => {
   const [data, setData] = useState([])
