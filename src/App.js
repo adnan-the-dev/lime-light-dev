@@ -1,5 +1,4 @@
 import './App.css';
-import React, { createContext, useState } from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import About from "./components/about/About";
 import Home from "./components/home/Home";
