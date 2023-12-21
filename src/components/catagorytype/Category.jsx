@@ -2,7 +2,6 @@ import { Avatar } from '@mui/material'
 import React from 'react'
 
 const Category = ({ cat ,btn }) => {
-  console.log(btn);
   return (
     <>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3rem', marginTop: "2rem" }}>

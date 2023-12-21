@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import {
   Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
   Table,
   TableBody,
   TableCell,
@@ -10,13 +15,20 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import axios from 'axios';
-import { Circles} from 'react-loader-spinner';
+import { Circles } from 'react-loader-spinner';
 import { UpdateOutlined } from '@mui/icons-material';
+import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const UserDetails = () => {
   const [data, setData] = useState([])
-  console.log(data,'data');
   const [loading, setLoading] = useState(false)
+  const [open, setOpen] = useState(false)
+
+  const handleclose = () => {
+    setOpen(false)
+  }
+
   const baseUrl = process.env.REACT_APP_BASE_URL
 
   // get all user Api
@@ -25,27 +37,22 @@ const UserDetails = () => {
     const response = await axios.get(
       `${baseUrl}/api/users`
     );
-    // console.log(response, 'res');
     if (response.status == 200) {
-  console.log(response,'responce');
       setData(response?.data)
-      setLoading(false) 
-      console.log();
+      setLoading(false)
     }
   }
   // // get all user Api end
 
-  // async function deleteItem (itemId){
-  //   // console.log(itemId,'hello')
-  //   const res = await axios.delete(`http://localhost:8800/api/users/${itemId}`)
-  //   if(res.status == 200){
-  //     toast.success(`${res} item delete`)
-  //   } else {
-  //     // console.error("Registration failed:", res);
-  //     toast.error(`${res}some error ecourd`)
-  //   }
-  // }
-
+  async function deleteItem(itemId) {
+    const res = await axios.delete(`${baseUrl}/api/users/${itemId}`)
+    getUserData()
+    if (res.status == 200) {
+      toast.success(`item delete`)
+    } else {
+      toast.error(`${res}some error ecourd`)
+    }
+  }
   // // Delete user Api
   useEffect(() => {
     getUserData()
@@ -112,11 +119,13 @@ const UserDetails = () => {
                                     <TableCell>{item._id}</TableCell>
                                     <TableCell>world</TableCell>
                                     <TableCell>
-                                      <UpdateOutlined />
+                                      <Link to={`/about/${item._id}`}>
+                                      <UpdateOutlined style={{cursor:'pointer'}}/>
+                                      </Link>
                                     </TableCell>
                                     <TableCell>
-                                      <DeleteIcon style={{cursor:'pointer'}} onClick={()=>{
-                                        // deleteItem(item._id)
+                                      <DeleteIcon style={{ cursor: 'pointer' }} onClick={() => {
+                                        deleteItem(item._id)
                                         // toast.error("Hello world")
                                       }} />
                                     </TableCell>
