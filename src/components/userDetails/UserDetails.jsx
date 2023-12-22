@@ -57,6 +57,12 @@ const UserDetails = () => {
   useEffect(() => {
     getUserData()
   }, [])
+
+
+
+
+
+
   return (
     <>
       <section id="header" className="">
@@ -122,6 +128,16 @@ const UserDetails = () => {
                                       <Link to={`/about/${item._id}`}>
                                       <UpdateOutlined style={{cursor:'pointer'}}/>
                                       </Link>
+                                      {/* <UpdateOutlined style={{cursor:'pointer'}} onClick={()=>{
+
+                                        item.username = prompt('Enter your name')
+                                        item.email = prompt('Enter your email')
+                                        axios.put('/update-user' , item).then(()=>{
+                                          setData([...data])
+                                        })
+                                        toast.success('hello world')
+                                      }}/> */}
+
                                     </TableCell>
                                     <TableCell>
                                       <DeleteIcon style={{ cursor: 'pointer' }} onClick={() => {

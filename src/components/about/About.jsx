@@ -7,8 +7,6 @@ const About = () => {
 
   const { id } = useParams();
   const [update, setUpdate] = useState([])
-  const [user, setUser] = useState([])
-  console.log(user,'uersfd');
   const navigate = useNavigate()
   const baseUrl = process.env.REACT_APP_BASE_URL
   useEffect(() => {
@@ -18,8 +16,8 @@ const About = () => {
   }, [])
 
   function handleSubmit (event) {
-    // event.preventDefau1t()
-    axios.put(`${baseUrl}/api/users/` + id, update).then(res => {setUser(res)
+    event.preventDefau1t()
+    axios.put(`${baseUrl}/api/users/` + id, update).then(res => {
       toast.success("data updata successfully")
       navigate('/userdetails')
     })
