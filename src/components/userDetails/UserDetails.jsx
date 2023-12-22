@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 
 const UserDetails = () => {
   const [data, setData] = useState([])
+  console.log(data,'dta');
   const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState(false)
 
