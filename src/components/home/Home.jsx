@@ -49,8 +49,9 @@ const Home = () => {
               }}>
                 {
                   btnNewSale.map((item, i) => {
+                  const routeLink=  item.toLowerCase().split(' ').join("")
                     return (
-                      <NavLink to={item} key={i}>
+                      <NavLink to={routeLink} key={i}>
                         <button>{item}</button>
                       </NavLink>
                     )

@@ -20,7 +20,7 @@ const baseUrl = process.env.REACT_APP_BASE_URL
   const registerUser = async (userData) => {
     try {
       const response = await axios.post(
-        `${baseUrl}/api/auth/login`,
+        `${baseUrl}/login`,
         userData
       );
 

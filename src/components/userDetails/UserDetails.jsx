@@ -6,6 +6,7 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  Divider,
   Table,
   TableBody,
   TableCell,
@@ -22,12 +23,11 @@ import { Link } from 'react-router-dom';
 
 const UserDetails = () => {
   const [data, setData] = useState([])
-  console.log(data,'dta');
   const [loading, setLoading] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState({ isOpen: false, id: '' })
 
   const handleclose = () => {
-    setOpen(false)
+    setOpen({ isOpen: false })
   }
 
   const baseUrl = process.env.REACT_APP_BASE_URL
@@ -36,7 +36,7 @@ const UserDetails = () => {
   async function getUserData() {
     setLoading(true)
     const response = await axios.get(
-      `${baseUrl}/api/users`
+      `${baseUrl}/users`
     );
     if (response.status == 200) {
       setData(response?.data)
@@ -46,7 +46,7 @@ const UserDetails = () => {
   // // get all user Api end
 
   async function deleteItem(itemId) {
-    const res = await axios.delete(`${baseUrl}/api/users/${itemId}`)
+    const res = await axios.delete(`${baseUrl}/${itemId}`)
     getUserData()
     if (res.status == 200) {
       toast.success(`item delete`)
@@ -54,10 +54,44 @@ const UserDetails = () => {
       toast.error(`${res}some error ecourd`)
     }
   }
-  // // Delete user Api
   useEffect(() => {
     getUserData()
   }, [])
+
+  let userData = data.find((user) => user._id == open.id)
+
+  const [userName, setUserName] = useState(userData?.username)
+  const [userEmail, setUserEmail] = useState(userData?.email)
+
+
+  useEffect(() => {
+    if (userData) {
+      setUserName(userData?.username);
+      setUserEmail(userData?.email)
+    }
+  }, [open])
+
+  const handleUserEmail = (e) => {
+    setUserEmail(e.target.value)
+  }
+
+  const handleUserName = (e) => {
+    setUserName(e.target.value)
+  }
+
+
+  // callin API for update user
+  const updateUser = async () => {
+    const formData = {
+      username : userName,
+      email: userEmail
+    }
+    await axios.put(`${baseUrl}/update-user/${open.id}`, formData).then(res => {
+      toast.success("data updata successfully")
+    })
+
+  }
+
   return (
     <>
       <section id="header" className="">
@@ -120,9 +154,12 @@ const UserDetails = () => {
                                     <TableCell>{item._id}</TableCell>
                                     <TableCell>world</TableCell>
                                     <TableCell>
-                                      <Link to={`/about/${item._id}`}>
+                                      {/* <Link to={`/about/${item._id}`}>
                                       <UpdateOutlined style={{cursor:'pointer'}}/>
-                                      </Link>
+                                      </Link> */}
+                                      <UpdateOutlined style={{ cursor: 'pointer' }} onClick={() => {
+                                        setOpen({ isOpen: true, id: item._id })
+                                      }} />
                                     </TableCell>
                                     <TableCell>
                                       <DeleteIcon style={{ cursor: 'pointer' }} onClick={() => {
@@ -144,6 +181,29 @@ const UserDetails = () => {
           </div>
         </div>
       </section>
+      <Dialog open={open.isOpen}>
+        <div className="pop-up">
+          <DialogTitle>
+            <h2 style={{ padding: 0, margin: "0" }}>hello</h2>
+          </DialogTitle>
+
+          <DialogContent
+            sx={{ textAlign: "center", margin: "0", padding: "0" }}
+          >
+            <input type="text" placeholder='name' value={userName} onChange={handleUserName} /><br />
+            <input type="text" placeholder='email' value={userEmail} onChange={handleUserEmail} />
+          </DialogContent>
+
+          <DialogActions sx={{ paddingBottom: "30px" }}>
+            <Button onClick={updateUser} variant="contained" color="primary">
+              Update
+            </Button>
+            <Button onClick={handleclose} variant="contained" color="primary">
+              Close
+            </Button>
+          </DialogActions>
+        </div>
+      </Dialog>
     </>
   )
 }

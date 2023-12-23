@@ -21,7 +21,7 @@ export const Registration = () => {
   const registerUser = async (userData) => {
     try {
       const response = await axios.post(
-        `${baseUrl}/api/auth/register`,
+        `${baseUrl}/register`,
         userData
       );
 
