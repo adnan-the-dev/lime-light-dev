@@ -1,36 +1,29 @@
-// import axios from 'axios'
-// import React, { useEffect, useState } from 'react'
-// import { useNavigate, useParams } from 'react-router-dom'
-// import { toast } from 'react-toastify';
+// // import axios from 'axios'
+// // import React, { useEffect, useState } from 'react'
+// // import { useNavigate, useParams } from 'react-router-dom'
+// // import { toast } from 'react-toastify';
 
 // const About = () => {
-//   const baseUrl = process.env.REACT_APP_BASE_URL
+
 //   const { id } = useParams();
-//   console.log(id,'uersfd');
 //   const [update, setUpdate] = useState([])
-//   console.log(update,'upadat');
+//   const [user, setUser] = useState([])
+//   console.log(user,'uersfd');
 //   const navigate = useNavigate()
-
-//   async function getUserData() {
-//     const response = await axios.get(
-//       `${baseUrl}/users`
-//     );
-//     if (response.status == 200) {
-//       setUpdate(response?.data)
-//     }
-//   }
-
-//   async function handleSubmit (event) {
-//     event.preventDefault()
-//     // await axios.put(`${baseUrl}/users/${id}`,update).then(res => {
-//     //   toast.success("data updata successfully")
-//     //   navigate('/userdetails')
-//     // })
-//   }
-
-//     useEffect(() => {
-//     getUserData()
+//   const baseUrl = process.env.REACT_APP_BASE_URL
+//   useEffect(() => {
+//     axios.get(`${baseUrl}/api/users/` + id).
+//       then(res => setUpdate(res)).
+//       catch(err => console.log(err))
 //   }, [])
+
+//   function handleSubmit (event) {
+//     // event.preventDefau1t()
+//     axios.put(`${baseUrl}/api/users/` + id, update).then(res => {setUser(res)
+//       toast.success("data updata successfully")
+//       navigate('/userdetails')
+//     })
+//   }
 //   return (
 //     <>
 //       <div className='d-flex w-100 vh-100 justify-content-center align-items-center'>
@@ -42,7 +35,7 @@
 //                 name="name"
 //                 placeholder='Enter your Name'
 //                 className='form-control'
-//                 value={update.username}
+//                 value={update.data?.username}
 //                 onChange={e => setUpdate({ ...update, name: e.target.value })}
 //               />
 //             </div>
@@ -51,7 +44,7 @@
 //                 name="email"
 //                 placeholder='Enter your Email'
 //                 className='form-control'
-//                 value={update.email}
+//                 value={update.data?.email}
 //                 onChange={e => setUpdate({ ...update, email: e.target.value })}
 //               />
 //             </div>
@@ -63,4 +56,4 @@
 //   )
 // }
 
-// export default About
+// // export default About
