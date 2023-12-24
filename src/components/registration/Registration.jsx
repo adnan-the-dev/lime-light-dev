@@ -30,7 +30,7 @@ export const Registration = () => {
         navigate('/login')
       } else {
         console.error("Registration failed:", response.data);
-        toast.error(`${response?.data}some error ecourd`)
+        toast.error(`${response?.data}some error occured`)
       }
     } catch (error) {
       console.error("An error occurred during registration:", error.message);

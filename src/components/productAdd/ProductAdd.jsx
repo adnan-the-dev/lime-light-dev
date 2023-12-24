@@ -5,25 +5,50 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { v4 } from 'uuid';
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const ProductAdd = () => {
-  let { register, handleSubmit ,reset} = useForm();
-  const navigate = useNavigate() 
+  let { register, handleSubmit, reset } = useForm();
+  const navigate = useNavigate()
   const dispatch = useDispatch()
+  const baseUrl = process.env.REACT_APP_BASE_URL
+
   const getDataAllData = (data) => {
-    if(!data.file.length){
+    if (!data.file.length) {
       toast.error("No image selected");
       return
     }
     data.img = URL.createObjectURL(data.file[0]);
-    data.id = v4();
-    dispatch({
-      type:'ADD_DATA',
-      payload:data
-    })
-   toast.success("Product create")
-  //  reset()
-  navigate('/')
+    const formData = {
+      name: data.name,
+      price: data.price,
+      description: data.description,
+      images: data.img
+    }
+    addProducts(formData)
+    console.log(formData, 'alldata');
+    //   data.id = v4();
+    //   dispatch({
+    //     type:'ADD_DATA',
+    //     payload:data
+    //   })
+    //  toast.success("Product create")
+    // //  reset()
+    // navigate('/')
   };
+
+  const addProducts = async (productData) => {
+    try {
+      const res = await axios.post(`${baseUrl}/addProduct`, productData);
+      if (res.status === 200) {
+        toast.success("add product successfully")
+        navigate('/')
+      } else {
+        toast.error("some error occured")
+      }
+    } catch (e) {
+      toast.error(`${e.message}An error occurred during addProduct`)
+    }
+  }
   return (
     <>
       <section id="header" className="">

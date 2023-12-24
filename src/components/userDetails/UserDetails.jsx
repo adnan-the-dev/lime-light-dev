@@ -86,6 +86,8 @@ const UserDetails = () => {
       username : userName,
       email: userEmail
     }
+    handleclose()
+    getUserData()
     await axios.put(`${baseUrl}/update-user/${open.id}`, formData).then(res => {
       toast.success("data updata successfully")
     })
