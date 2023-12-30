@@ -1,13 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../card/Card";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { Carousal } from "../carousal/Carousal";
 import Category from "../catagorytype/Category";
 import { NavLink } from "react-router-dom";
+import { Circles } from "react-loader-spinner";
+import axios from "axios";
 const Home = () => {
-  const data = useSelector((item) => {
-    return item.productSection
-  })
+  // const data = useSelector((item) => {
+  //   return item.productSection
+  // })
+  const [productsData, setProductsData] = useState([])
+  const [loading, setLoading] = useState(false)
+  const baseUrl = process.env.REACT_APP_BASE_URL
+   // get all user Api
+   async function getUserData() {
+    setLoading(true)
+    const response = await axios.get(
+      `${baseUrl}/products`
+    );
+    if (response.status == 200) {
+      setProductsData(response?.data)
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    getUserData()
+  }, [])
+
   let catago = [
     {
       img: 'https://www.limelight.pk/cdn/shop/files/LL-Homepage_bubble_Women-15-Nov-23_300x.png?v=1700045851',
@@ -63,7 +84,10 @@ const Home = () => {
 
               </div>
               <h1 style={{ textAlign: 'center', color: 'black', fontWeight: "600" }}>New Arrivals</h1>
-              <Card home={data} />
+              {
+                loading ? (<Circles />) :
+              <Card home={productsData} />
+              }
             </div>
           </div>
         </div>

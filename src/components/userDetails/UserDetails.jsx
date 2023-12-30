@@ -83,7 +83,7 @@ const UserDetails = () => {
   // callin API for update user
   const updateUser = async () => {
     const formData = {
-      username : userName,
+      username: userName,
       email: userEmail
     }
     handleclose()

@@ -2,14 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import "../sharedCss/shared.css";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
-import { v4 } from 'uuid';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const ProductAdd = () => {
-  let { register, handleSubmit, reset } = useForm();
+  let { register, handleSubmit} = useForm();
   const navigate = useNavigate()
-  const dispatch = useDispatch()
   const baseUrl = process.env.REACT_APP_BASE_URL
 
   const getDataAllData = (data) => {
@@ -21,11 +18,12 @@ const ProductAdd = () => {
     const formData = {
       name: data.name,
       price: data.price,
+      category:'',
       description: data.description,
+      discount:'',
       images: data.img
     }
     addProducts(formData)
-    console.log(formData, 'alldata');
     //   data.id = v4();
     //   dispatch({
     //     type:'ADD_DATA',
