@@ -12,7 +12,6 @@ const DetailsItem = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [detailsProducts, setDetailsProducts] = useState([])
-  console.log(detailsProducts.result, 'dksfhskf');
   const [loading, setLoading] = useState(false)
   const baseUrl = process.env.REACT_APP_BASE_URL
   // get all user Api
@@ -27,8 +26,6 @@ const DetailsItem = () => {
     }
   }
   const detailsData = detailsProducts.result?.find((item) => item._id == id)
-  console.log(detailsData);
-
   useEffect(() => {
     getProductsData()
   }, [])

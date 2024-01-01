@@ -35,26 +35,20 @@ const Card = ({ home }) => {
                 <div className="imge">
                   <div className="cart-name-set">
                     <h4>{home.name}</h4>
-                    <DeleteIcon style={{ cursor: 'pointer' ,color:'red',right:'0px'}} onClick={() => {
+                    {/* <DeleteIcon style={{ cursor: 'pointer' ,color:'red',right:'0px'}} onClick={() => {
                       deleteItem(home._id)
                       // toast.error("Hello world")
-                    }} />
+                    }} /> */}
                   </div>
                   <img src={home.images} alt="home" />
                   <h4>Rs: {home.price}</h4>
                 </div>
               </div>
             </NavLink>
-            {/* <Button variant="contained" color="primary" style={{ maxWidth: '30px', maxHeight: '30px', marginTop: '4px' }} onClick={() => {
-              deleteItem(item)
-              toast.success("Item Delete")
-            }}>
-              Delete
-            </Button> */}
-            {/* <DeleteIcon style={{ cursor: 'pointer' }} onClick={() => {
-              deleteItem(home._id)
-              // toast.error("Hello world")
-            }} /> */}
+            <DeleteIcon style={{ cursor: 'pointer' ,color:'red',right:'0px'}} onClick={() => {
+                      deleteItem(home._id)
+                      // toast.error("Hello world")
+                    }} />
           </div>
         );
       })}

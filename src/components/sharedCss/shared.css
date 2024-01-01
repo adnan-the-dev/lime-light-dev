@@ -27,11 +27,11 @@
   margin-top: 12px;
   transition: transform 0.5s;
 }
-.cart-name-set{
+.cart-name-set {
   display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
 }
 /* .card:hover {
   background-color: red;
@@ -43,33 +43,32 @@
   display: flex;
   margin-top: 20px;
   justify-content: space-between;
- }
- 
-.img-details{
+}
+
+.img-details {
   height: 100%;
   width: 100%;
   object-fit: fill;
 }
- .container-2{
+.container-2 {
   height: 580px;
   width: 400px;
   border: 1px solid gray;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
- }
- .discription-section{
+}
+.discription-section {
   text-align: center;
- border: 1px solid gray;
- border-radius: 12px;
- height: 230px;
- overflow: auto;
+  border: 1px solid gray;
+  border-radius: 12px;
+  height: 230px;
+  overflow: auto;
 }
 ::-webkit-scrollbar {
   width: 0em;
 }
-.discription-section div{
+.discription-section div {
   position: sticky;
   top: 0;
   overflow: hidden;
@@ -77,20 +76,19 @@
   width: 100%;
   background-color: green;
 }
-.discription-section h4{
+.discription-section h4 {
   color: #fff;
   font-size: x-large;
   font-weight: 600;
-  
 }
-.discription-section p{
+.discription-section p {
   font-size: medium;
   font-weight: 520;
   padding: 0px 10px;
 }
 /* *******************Counter Section*************** */
 
- button {
+button {
   padding: 10px 20px;
   background-color: #0052cc;
   color: white;
@@ -111,7 +109,7 @@ button:focus {
   outline: none;
 }
 .counter-container {
-   display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -271,28 +269,28 @@ body {
   font-size: 16px;
   font-weight: 500;
 }
-.btn:hover{
+.btn:hover {
   background-color: #3498db;
   color: #fff;
 }
 /* **************Table Section************* */
 
-.main-container-table{
+.main-container-table {
   width: 100%;
   padding: 44px 47px;
   height: 500px;
 }
-.table-section{
+.table-section {
   border: 1px solid gray;
   height: 500px;
   box-shadow: -3px 4px 11px 2px rgba(143, 140, 140, 0.062);
   overflow-y: auto;
 }
-.table-header{
-  color:white;
+.table-header {
+  color: white;
 }
 
-.nav-item{
+.nav-item {
   color: white;
   display: flex;
   align-items: center;
