@@ -1,10 +1,9 @@
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import About from "./components/about/About";
 import Home from "./components/home/Home";
 import Navbar from "./components/navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
-import Services from "./components/services/Services";
+import SpecialPrice from "./components/SpecialPrice/SpecialPrice";
 import ProductAdd from "./components/productAdd/ProductAdd";
 import DetailsItem from "./components/details/DetailsItem";
 import { Provider } from "react-redux";
@@ -15,6 +14,8 @@ import { TotalOrders } from "./components/totalorders/TotalOrders";
 import { Login } from "./components/login/Login";
 import { Registration } from "./components/registration/Registration";
 import UserDetails from "./components/userDetails/UserDetails";
+import { NewOnSale } from './components/NewOnSale/NewOnSale';
+import { BestSeller } from './components/BestSeller/BestSeller';
 
 function App() {
 
@@ -26,8 +27,9 @@ function App() {
       <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/about/:id" element={<About />} /> */}
-          <Route path="/services" element={<Services />} />
+          <Route path='/NewOnSale' element={<NewOnSale/>}/>
+          <Route path="/SpecialPrice" element={<SpecialPrice />} />
+          <Route path="/BestSeller" element={<BestSeller />} />
           <Route path="/userdetails" element={<UserDetails />} />
           <Route path="/productadd" element={<ProductAdd />} />
           <Route path="/detailsitem/:id" element={<DetailsItem />} />

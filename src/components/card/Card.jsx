@@ -12,7 +12,7 @@ const Card = ({ home }) => {
   const baseUrl = process.env.REACT_APP_BASE_URL
 
   async function deleteItem(itemId) {
-    const res = await axios.delete(`${baseUrl}/${itemId}`)
+    const res = await axios.delete(`${baseUrl}/products/${itemId}`)
     if (res.status == 200) {
       toast.success(`item delete`)
     } else {

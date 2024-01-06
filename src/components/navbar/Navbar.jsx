@@ -70,7 +70,7 @@ const Navbar = () => {
                     <a
                       style={{
                         position: "absolute",
-                        left: "43rem",
+                        left: "38rem",
                         paddingTop:'0px',
                         backgroundImage:
                           "linear-gradient(90deg, #16e2c0 46%, #f1e609 49%)",
@@ -98,16 +98,16 @@ const Navbar = () => {
                             Home
                           </NavLink>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                           <NavLink className="nav-link" to="/services">
                             Services
                           </NavLink>
-                        </li>
-                        <li className="nav-item">
+                        </li> */}
+                        {/* <li className="nav-item">
                           <NavLink className="nav-link" to="/about">
                             About
                           </NavLink>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                           <NavLink className="nav-link" to="/userdetails">
                             UserDetails
