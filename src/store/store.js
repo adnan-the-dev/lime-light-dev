@@ -1,10 +1,7 @@
 import { combineReducers, createStore } from "redux";
-import { v4 } from 'uuid';
+import { v4 } from "uuid";
 const initialItem = {
-  cart:[
-    
-    
-  ],
+  cart: [],
   // products: [
   //   {
   //     name: "2 Piece Velvet",
@@ -77,7 +74,7 @@ const initialItem = {
   //     description:
   //       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
   //     id: v4(),
-  //   }, 
+  //   },
   //    {
   //     name: "3 Piece Organza Suit",
   //     img: "https://www.limelight.pk/cdn/shop/files/DSC07423_11b3df96-39b9-49b0-9266-53406d598d21_533x.jpg?v=1701340903",
@@ -85,7 +82,7 @@ const initialItem = {
   //     description:
   //       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
   //     id: v4(),
-  //   },  
+  //   },
   //   {
   //     name: "3 Piece Velvet Suit",
   //     img: "https://www.limelight.pk/cdn/shop/files/DSC01566_533x.jpg?v=1701162799",
@@ -93,7 +90,7 @@ const initialItem = {
   //     description:
   //       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
   //     id: v4(),
-  //   },  
+  //   },
   //   {
   //     name: "Classic Mules",
   //     img: "https://www.limelight.pk/cdn/shop/files/DSC_2597_adceb16d-0399-4e0b-bfe9-1da9371181d0_533x.jpg?v=1702904081",
@@ -101,7 +98,7 @@ const initialItem = {
   //     description:
   //       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
   //     id: v4(),
-  //   }, 
+  //   },
   //    {
   //     name: "2 Piece Velvet Suit",
   //     img: "https://www.limelight.pk/cdn/shop/files/DSC06175_533x.jpg?v=1701863681",
@@ -109,7 +106,7 @@ const initialItem = {
   //     description:
   //       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
   //     id: v4(),
-  //   },  
+  //   },
   //   {
   //     name: "Diva-100ml",
   //     img: "https://www.limelight.pk/cdn/shop/files/DSC_2916_1594a857-65ff-4ea4-8d3b-d99a141888de_533x.jpg?v=1697287398",
@@ -117,7 +114,7 @@ const initialItem = {
   //     description:
   //       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
   //     id: v4(),
-  //   }, 
+  //   },
   //    {
   //     name: "Envelope Handbag",
   //     img: "https://www.limelight.pk/cdn/shop/files/DSC_1055_89376a4c-50f4-4d4c-8149-c209e1b88057_533x.jpg?v=1701074924",
@@ -125,7 +122,7 @@ const initialItem = {
   //     description:
   //       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
   //     id: v4(),
-  //   },  
+  //   },
   //   {
   //     name: "Yarn Dyed Kurti",
   //     img: "https://www.limelight.pk/cdn/shop/files/DSC04085_1_533x.jpg?v=1700206438",
@@ -133,7 +130,7 @@ const initialItem = {
   //     description:
   //       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
   //     id: v4(),
-  //   },  
+  //   },
   //   {
   //     name: "Winter Cotton Shirt",
   //     img: "https://www.limelight.pk/cdn/shop/files/DSC08527_533x.jpg?v=1701170313",
@@ -150,25 +147,28 @@ function productSection(oldData = initialItem, newData) {
     oldData = {
       ...oldData,
       // products: [...oldData.products],
-      cart:[...oldData.cart]
+      cart: [...oldData.cart],
     };
-    switch(newData.type){
+    switch (newData.type) {
       case "ADD_DATA":
         oldData.products.push(newData.payload);
         break;
       case "ADD_TO_CART":
-        oldData.cart.push(newData.payload)
+        oldData.cart.push(newData.payload);
         break;
-        case "DELETET_ITEM":
-        let deleteUser = oldData.cart.findIndex(cart=>cart.id == newData.payload)
-          oldData.cart.splice(deleteUser , 1)
+      case "DELETET_ITEM":
+        let deleteUser = oldData.cart.findIndex(
+          (cart) => cart.id == newData.payload
+        );
+        oldData.cart.splice(deleteUser, 1);
         break;
-        case "DELETET_PRODUCT":
-          let deleteProducts = oldData.products.findIndex(products=>products.id == newData.payload)
-            oldData.products.splice(deleteProducts , 1)
-          break;
+      case "DELETET_PRODUCT":
+        let deleteProducts = oldData.products.findIndex(
+          (products) => products.id == newData.payload
+        );
+        oldData.products.splice(deleteProducts, 1);
+        break;
     }
-    
   } catch (e) {
     console.log(e.message);
   }
@@ -178,4 +178,3 @@ function productSection(oldData = initialItem, newData) {
 const allSlection = combineReducers({ productSection });
 
 export const total = createStore(allSlection);
-

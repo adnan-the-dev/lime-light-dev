@@ -26,7 +26,7 @@ const baseUrl = process.env.REACT_APP_BASE_URL
 
       if (response.status == 200) {
         console.log(response,'response after login');
-        toast.success(`${response?.data.username} login successfully`)
+        toast.success('login successfully')
         localStorage.setItem('allUserData',JSON.stringify(response.data))  
         navigate('/')
 

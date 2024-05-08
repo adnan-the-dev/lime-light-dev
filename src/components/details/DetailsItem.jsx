@@ -68,7 +68,7 @@ const DetailsItem = () => {
                       </div>
                       <hr />
                       <div className="counter-container ">
-                        <button onClick={() => setCounter(counter - 1)}>-</button>
+                        <button onClick={() => setCounter(counter > 1 ? counter - 1 : counter)}>-</button>
                         <h4>{counter}</h4>
                         <button onClick={() => setCounter(counter + 1)}>+</button>
                       </div>

@@ -126,10 +126,10 @@ const UserDetails = () => {
                               <TableSortLabel>Price</TableSortLabel>
                             </TableCell>
                             <TableCell>
-                              <TableSortLabel>Delete Item</TableSortLabel>
+                              <TableSortLabel>Edit Item</TableSortLabel>
                             </TableCell>
                             <TableCell>
-                              <TableSortLabel>Edit Item</TableSortLabel>
+                              <TableSortLabel>Delete Item</TableSortLabel>
                             </TableCell>
                             {/* <TableCell align={"right"}>Delete</TableCell> */}
                           </TableRow>

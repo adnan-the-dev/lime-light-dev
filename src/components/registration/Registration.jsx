@@ -6,43 +6,39 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 export const Registration = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   let { register, handleSubmit, reset } = useForm();
   const getDataAllData = (data) => {
     const formData = {
       username: data.name,
       email: data.email,
-      password: data.password
-    }
-    registerUser(formData)
+      password: data.password,
+    };
+    registerUser(formData);
     // reset()
   };
-  const baseUrl = process.env.REACT_APP_BASE_URL
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const registerUser = async (userData) => {
     try {
-      const response = await axios.post(
-        `${baseUrl}/register`,
-        userData
-      );
+      const response = await axios.post(`${baseUrl}/register`, userData);
 
       if (response.status === 200) {
-        toast.success(`${response?.data?.username} registered successfully`)
-        navigate('/login')
+        toast.success("registered successfully");
+        navigate("/login");
       } else {
         console.error("Registration failed:", response.data);
-        toast.error(`${response?.data}some error occured`)
+        toast.error(`${response?.data}some error occured`);
       }
     } catch (error) {
       console.error("An error occurred during registration:", error.message);
     }
   };
 
-  useEffect(()=>{
-  if(localStorage.getItem("allUserData")){
-    navigate("/")
-  }
-
-  },[])
+  useEffect(() => {
+    if (localStorage.getItem("allUserData")) {
+      navigate("/");
+    }
+  }, []);
   return (
     <>
       <section id="header" className="">
